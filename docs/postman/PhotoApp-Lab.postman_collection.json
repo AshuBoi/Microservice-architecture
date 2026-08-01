@@ -1,0 +1,61 @@
+{
+  "info": {
+    "name": "PhotoApp Lab",
+    "description": "Spring Cloud gateway + users + account stub for AshuBoi portfolio case study.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Register user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Ada\",\n  \"lastName\": \"Lovelace\",\n  \"email\": \"ada@example.com\",\n  \"password\": \"Secret123!\",\n  \"repeatPassword\": \"Secret123!\"\n}"
+        },
+        "url": "{{baseUrl}}/users-ws/users"
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"ada@example.com\",\n  \"password\": \"Secret123!\"\n}"
+        },
+        "url": "{{baseUrl}}/users-ws/login"
+      }
+    },
+    {
+      "name": "Account status check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/account-ws/account/status/check"
+      }
+    }
+  ]
+}
